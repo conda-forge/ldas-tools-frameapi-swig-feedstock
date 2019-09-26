@@ -1,5 +1,5 @@
 {% set name = "ldas-tools-frameAPI-swig" %}
-{% set version = "2.6.7" %}
+{% set version = "2.6.8" %}
 
 # dependencies
 {% set ldas_tools_cmake_version = "1.0.5" %}
@@ -13,7 +13,7 @@ package:
 
 source:
   url: "http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz"
-  sha256: b44409d16ca35e648ff3aa05866eb1f679049606fd6b80f451f24fc24fdcaa5e
+  sha256: 86806ebb497405fbc433f2d139c4983d71ca9037cbdeeea0d5719c3ba6ddaf4b
 
 build:
   number: 0
