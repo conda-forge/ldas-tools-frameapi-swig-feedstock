@@ -1,11 +1,11 @@
 {% set name = "ldas-tools-frameAPI-swig" %}
-{% set version = "2.6.7" %}
+{% set version = "2.6.8" %}
 
 # dependencies
-{% set ldas_tools_cmake_version = "1.0.5" %}
-{% set ldas_tools_frameapi_version = "2.6.3" %}
+{% set ldas_tools_cmake_version = "1.0.8" %}
+{% set ldas_tools_frameapi_version = "2.6.4" %}
 {% set ldas_tools_framecpp_swig_version = "2.6.6" %}
-{% set ldas_tools_ldasgen_swig_version = "2.6.6" %}
+{% set ldas_tools_ldasgen_swig_version = "2.6.7" %}
 
 package:
   name: "{{ name|lower }}"
@@ -13,7 +13,7 @@ package:
 
 source:
   url: "http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz"
-  sha256: b44409d16ca35e648ff3aa05866eb1f679049606fd6b80f451f24fc24fdcaa5e
+  sha256: 86806ebb497405fbc433f2d139c4983d71ca9037cbdeeea0d5719c3ba6ddaf4b
 
 build:
   number: 0
@@ -23,14 +23,13 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake >=3.6
-    - pkg-config  # [not win]
-    - make  # [not win]
-    - swig 3
+    - pkg-config  # [unix]
   host:
     - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
-    - ldas-tools-frameapi >={{ ldas_tools_frameapi_version }}
+    - ldas-tools-frameapi {{ ldas_tools_frameapi_version }}
     - ldas-tools-framecpp-swig >={{ ldas_tools_framecpp_swig_version }}
     - ldas-tools-ldasgen-swig >={{ ldas_tools_ldasgen_swig_version }}
+    - swig >=3.0.7,<4.0.0a0
   run:
     - ldas-tools-frameapi >={{ ldas_tools_frameapi_version }}
     - ldas-tools-framecpp-swig >={{ ldas_tools_framecpp_swig_version }}
@@ -38,28 +37,25 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/include/frameAPI/LDASframe.i  # [not win]
+    - test -f ${PREFIX}/include/frameAPI/LDASframe.i  # [unix]
 
 outputs:
   - name: ldas-tools-frameapi-swig
 
   - name: python-ldas-tools-frameapi
     script: install-python.sh
-    build:
-      activate_in_script: true
     requirements:
       build:
         - {{ compiler('cxx') }}
         - cmake >=3.6
-        - pkg-config  # [not win]
-        - make  # [not win]
-        - swig 3
+        - pkg-config  # [unix]
       host:
         - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
         - ldas-tools-al
         - ldas-tools-al-swig
         - {{ pin_subpackage('ldas-tools-frameapi-swig', exact=True) }}
         - python
+        - swig >=3.0.7,<4.0.0a0
       run:
         - python
         - ldas-tools-al
@@ -71,20 +67,20 @@ outputs:
       imports:
         - LDAStools.LDASlogging
     about:
-      home: https://wiki.ligo.org/Computing/DASWG/LDASTools
-      dev_url: https://git.ligo.org/ldastools/LDAS_Tools
-      license: GPLv3
-      license_family: GPL
-      license_file: COPYING
-      summary: Python bindings for the LDAS Tools frame utility library
+      home: "https://wiki.ligo.org/Computing/DASWG/LDASTools"
+      dev_url: "https://git.ligo.org/ldastools/LDAS_Tools"
+      license: "GPL-3.0-or-later"
+      license_family: "GPL"
+      license_file: "COPYING"
+      summary: "Python bindings for the LDAS Tools frame utility library"
 
 about:
-  home: https://wiki.ligo.org/Computing/LDASTools
-  dev_url: https://git.ligo.org/ldastools/LDAS_Tools
-  license: GPLv2+
-  license_family: GPL
-  license_file: COPYING
-  summary: SWIG interface for the LDAS Tools frame utility library
+  home: "https://wiki.ligo.org/Computing/LDASTools"
+  dev_url: "https://git.ligo.org/ldastools/LDAS_Tools"
+  license: "GPL-3.0-or-later"
+  license_family: "GPL"
+  license_file: "COPYING"
+  summary: "SWIG interface for the LDAS Tools frame utility library"
 
 extra:
   recipe-maintainers:

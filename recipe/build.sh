@@ -2,18 +2,18 @@
 
 set -ex
 
-mkdir -p build
-pushd build
+mkdir -p _build
+pushd _build
 
 # configure
-cmake .. \
+cmake ${SRC_DIR} \
 	-DCMAKE_INSTALL_PREFIX=${PREFIX} \
-	-DCMAKE_BUILD_TYPE=Release \
+	-DCMAKE_BUILD_TYPE=RelWithDebInfo \
 	-DENABLE_SWIG_PYTHON2=no \
 	-DENABLE_SWIG_PYTHON3=no
 
 # build
-cmake --build . -- -j ${CPU_COUNT}
+cmake --build . --parallel ${CPU_COUNT}
 
 # check
 ctest -VV
