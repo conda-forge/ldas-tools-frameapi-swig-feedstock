@@ -25,7 +25,7 @@ requirements:
     - cmake >=3.6
     - pkg-config  # [unix]
   host:
-    - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
+    - ldas-tools-cmake >={{ ldas_tools_cmake_version }},<1.2.0
     - ldas-tools-frameapi {{ ldas_tools_frameapi_version }}
     - ldas-tools-framecpp-swig >={{ ldas_tools_framecpp_swig_version }}
     - ldas-tools-ldasgen-swig >={{ ldas_tools_ldasgen_swig_version }}
@@ -50,7 +50,7 @@ outputs:
         - cmake >=3.6
         - pkg-config  # [unix]
       host:
-        - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
+        - ldas-tools-cmake >={{ ldas_tools_cmake_version }},<1.2.0
         - ldas-tools-al
         - ldas-tools-al-swig
         - {{ pin_subpackage('ldas-tools-frameapi-swig', exact=True) }}
