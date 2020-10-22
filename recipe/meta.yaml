@@ -16,7 +16,7 @@ source:
   sha256: 86806ebb497405fbc433f2d139c4983d71ca9037cbdeeea0d5719c3ba6ddaf4b
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -25,7 +25,7 @@ requirements:
     - cmake >=3.6
     - pkg-config  # [unix]
   host:
-    - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
+    - ldas-tools-cmake >={{ ldas_tools_cmake_version }},<1.2.0
     - ldas-tools-frameapi {{ ldas_tools_frameapi_version }}
     - ldas-tools-framecpp-swig >={{ ldas_tools_framecpp_swig_version }}
     - ldas-tools-ldasgen-swig >={{ ldas_tools_ldasgen_swig_version }}
@@ -50,7 +50,7 @@ outputs:
         - cmake >=3.6
         - pkg-config  # [unix]
       host:
-        - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
+        - ldas-tools-cmake >={{ ldas_tools_cmake_version }},<1.2.0
         - ldas-tools-al
         - ldas-tools-al-swig
         - {{ pin_subpackage('ldas-tools-frameapi-swig', exact=True) }}
