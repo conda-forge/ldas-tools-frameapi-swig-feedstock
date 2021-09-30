@@ -1,5 +1,5 @@
 {% set name = "ldas-tools-frameAPI-swig" %}
-{% set version = "2.6.8" %}
+{% set version = "2.6.10" %}
 
 # dependencies
 {% set ldas_tools_cmake_version = "1.0.8" %}
@@ -8,15 +8,15 @@
 {% set ldas_tools_ldasgen_swig_version = "2.6.7" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz"
-  sha256: 86806ebb497405fbc433f2d139c4983d71ca9037cbdeeea0d5719c3ba6ddaf4b
+  url: http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
+  sha256: a9fa85656358155bcb2b0a6ef3f963c662abe55a6d3916ef7b433d2b625c76dd
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -67,20 +67,20 @@ outputs:
       imports:
         - LDAStools.LDASlogging
     about:
-      home: "https://wiki.ligo.org/Computing/DASWG/LDASTools"
-      dev_url: "https://git.ligo.org/ldastools/LDAS_Tools"
-      license: "GPL-3.0-or-later"
-      license_family: "GPL"
-      license_file: "COPYING"
-      summary: "Python bindings for the LDAS Tools frame utility library"
+      home: https://wiki.ligo.org/Computing/DASWG/LDASTools
+      dev_url: https://git.ligo.org/ldastools/LDAS_Tools
+      license: GPL-3.0-or-later
+      license_family: GPL
+      license_file: COPYING
+      summary: Python bindings for the LDAS Tools frame utility library
 
 about:
-  home: "https://wiki.ligo.org/Computing/LDASTools"
-  dev_url: "https://git.ligo.org/ldastools/LDAS_Tools"
-  license: "GPL-3.0-or-later"
-  license_family: "GPL"
-  license_file: "COPYING"
-  summary: "SWIG interface for the LDAS Tools frame utility library"
+  home: https://wiki.ligo.org/Computing/LDASTools
+  dev_url: https://git.ligo.org/ldastools/LDAS_Tools
+  license: GPL-3.0-or-later
+  license_family: GPL
+  license_file: COPYING
+  summary: SWIG interface for the LDAS Tools frame utility library
 
 extra:
   recipe-maintainers:
