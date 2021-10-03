@@ -1,8 +1,10 @@
 #!/bin/bash
 
 set -ex
-mkdir -p ${SRC_DIR}/build-python
-pushd ${SRC_DIR}/build-python
+
+_builddir="_build${PY_VER}"
+mkdir -pv ${_builddir}
+cd ${_builddir}
 
 # get python options
 if [ "${PY3K}" -eq 1 ]; then
@@ -12,16 +14,19 @@ else
 fi
 
 # configure
-cmake .. \
-	-DCMAKE_INSTALL_PREFIX=${PREFIX} \
-	-DCMAKE_BUILD_TYPE=Release \
-	${PYTHON_BUILD_OPTS}
+cmake \
+	${SRC_DIR} \
+	${CMAKE_ARGS} \
+	-DCMAKE_BUILD_TYPE:STRING=Release \
+	-DENABLE_SWIG_PYTHON2:BOOL=no \
+	-DENABLE_SWIG_PYTHON3:BOOL=yes \
+;
 
 # build
-cmake --build python -- -j ${CPU_COUNT}
+cmake --build python --parallel ${CPU_COUNT} --verbose
 
 # check
-ctest -VV
+ctest --parallel ${CPU_COUNT} --verbose
 
 # install
-cmake --build python --target install
+cmake --build python --parallel ${CPU_COUNT} --verbose --target install

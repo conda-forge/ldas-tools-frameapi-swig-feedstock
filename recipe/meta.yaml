@@ -2,10 +2,10 @@
 {% set version = "2.6.10" %}
 
 # dependencies
-{% set ldas_tools_cmake_version = "1.0.8" %}
-{% set ldas_tools_frameapi_version = "2.6.4" %}
-{% set ldas_tools_framecpp_swig_version = "2.6.6" %}
-{% set ldas_tools_ldasgen_swig_version = "2.6.7" %}
+{% set ldas_tools_cmake_version = "1.2.3" %}
+{% set ldas_tools_frameapi_version = "2.6.6" %}
+{% set ldas_tools_framecpp_swig_version = "2.6.12" %}
+{% set ldas_tools_ldasgen_swig_version = "2.6.9" %}
 
 package:
   name: {{ name|lower }}
@@ -24,12 +24,12 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake >=3.6
     - pkg-config  # [unix]
+    - swig >=3.0.7
   host:
     - ldas-tools-cmake >={{ ldas_tools_cmake_version }},<1.2.0
-    - ldas-tools-frameapi {{ ldas_tools_frameapi_version }}
+    - ldas-tools-frameapi >={{ ldas_tools_frameapi_version }}
     - ldas-tools-framecpp-swig >={{ ldas_tools_framecpp_swig_version }}
     - ldas-tools-ldasgen-swig >={{ ldas_tools_ldasgen_swig_version }}
-    - swig >=3.0.7,<4.0.0a0
   run:
     - ldas-tools-frameapi >={{ ldas_tools_frameapi_version }}
     - ldas-tools-framecpp-swig >={{ ldas_tools_framecpp_swig_version }}
@@ -44,18 +44,20 @@ outputs:
 
   - name: python-ldas-tools-frameapi
     script: install-python.sh
+    build:
+      skip: true  # [python_impl != 'cpython' ]
     requirements:
       build:
         - {{ compiler('cxx') }}
         - cmake >=3.6
         - pkg-config  # [unix]
+        - swig >=3.0.7
       host:
-        - ldas-tools-cmake >={{ ldas_tools_cmake_version }},<1.2.0
+        - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
         - ldas-tools-al
         - ldas-tools-al-swig
         - {{ pin_subpackage('ldas-tools-frameapi-swig', exact=True) }}
         - python
-        - swig >=3.0.7,<4.0.0a0
       run:
         - python
         - ldas-tools-al
