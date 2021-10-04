@@ -1,27 +1,27 @@
 #!/bin/bash
 
 set -ex
-mkdir -p ${SRC_DIR}/build-python
-pushd ${SRC_DIR}/build-python
 
-# get python options
-if [ "${PY3K}" -eq 1 ]; then
-  PYTHON_BUILD_OPTS="-DENABLE_SWIG_PYTHON2=no -DENABLE_SWIG_PYTHON3=yes -DPYTHON3_EXECUTABLE=${PYTHON}"
-else
-  PYTHON_BUILD_OPTS="-DENABLE_SWIG_PYTHON3=no -DENABLE_SWIG_PYTHON2=yes -DPYTHON2_EXECUTABLE=${PYTHON}"
-fi
+_builddir="_build${PY_VER}"
+mkdir -pv ${_builddir}
+cd ${_builddir}
 
 # configure
-cmake .. \
-	-DCMAKE_INSTALL_PREFIX=${PREFIX} \
-	-DCMAKE_BUILD_TYPE=Release \
-	${PYTHON_BUILD_OPTS}
+cmake \
+	${SRC_DIR} \
+	${CMAKE_ARGS} \
+	-DCMAKE_BUILD_TYPE:STRING=Release \
+	-DENABLE_SWIG_PYTHON2:BOOL=no \
+	-DENABLE_SWIG_PYTHON3:BOOL=yes \
+;
 
 # build
-cmake --build python -- -j ${CPU_COUNT}
+cmake --build python --parallel ${CPU_COUNT} --verbose
 
 # check
-ctest -VV
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
+	ctest --parallel ${CPU_COUNT} --verbose
+fi
 
 # install
-cmake --build python --target install
+cmake --build python --parallel ${CPU_COUNT} --verbose --target install
