@@ -26,7 +26,7 @@ requirements:
     - pkg-config  # [unix]
     - swig >=3.0.7
   host:
-    - ldas-tools-cmake >={{ ldas_tools_cmake_version }},<1.2.0
+    - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
     - ldas-tools-frameapi >={{ ldas_tools_frameapi_version }}
     - ldas-tools-framecpp-swig >={{ ldas_tools_framecpp_swig_version }}
     - ldas-tools-ldasgen-swig >={{ ldas_tools_ldasgen_swig_version }}
