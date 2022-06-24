@@ -43,7 +43,7 @@ outputs:
   - name: ldas-tools-frameapi-swig
 
   - name: python-ldas-tools-frameapi
-    script: install-python.sh
+    script: build-python.sh
     build:
       skip: true  # [python_impl != 'cpython']
     requirements:
