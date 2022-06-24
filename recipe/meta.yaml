@@ -4,8 +4,8 @@
 # dependencies
 {% set ldas_tools_cmake_version = "1.2.3" %}
 {% set ldas_tools_frameapi_version = "2.6.6" %}
-{% set ldas_tools_framecpp_swig_version = "2.6.12" %}
-{% set ldas_tools_ldasgen_swig_version = "2.6.9" %}
+{% set ldas_tools_framecpp_swig_version = "2.6.13" %}
+{% set ldas_tools_ldasgen_swig_version = "2.6.10" %}
 
 package:
   name: {{ name|lower }}
