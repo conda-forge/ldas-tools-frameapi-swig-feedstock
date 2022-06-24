@@ -12,7 +12,7 @@ package:
   version: {{ version }}
 
 source:
-  url: http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
+  url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
   sha256: 31b2253dab2dc4dbd4d464e91403fbbbd9549b4ebb28fff1a235f6f0681b5fe4
 
 build:
@@ -69,8 +69,9 @@ outputs:
       imports:
         - LDAStools.LDASlogging
     about:
-      home: https://wiki.ligo.org/Computing/DASWG/LDASTools
-      dev_url: https://git.ligo.org/ldastools/LDAS_Tools
+      home: https://wiki.ligo.org/Computing/LDASTools
+      dev_url: https://git.ligo.org/computing/ldastools/LDAS_Tools.git
+      doc_url: https://computing.docs.ligo.org/ldastools/LDAS_Tools/ldas-tools-frameAPI/
       license: GPL-3.0-or-later
       license_family: GPL
       license_file: COPYING
@@ -78,7 +79,8 @@ outputs:
 
 about:
   home: https://wiki.ligo.org/Computing/LDASTools
-  dev_url: https://git.ligo.org/ldastools/LDAS_Tools
+  dev_url: https://git.ligo.org/computing/ldastools/LDAS_Tools.git
+  doc_url: https://computing.docs.ligo.org/ldastools/LDAS_Tools/ldas-tools-frameAPI/
   license: GPL-3.0-or-later
   license_family: GPL
   license_file: COPYING
