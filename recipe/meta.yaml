@@ -23,6 +23,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake >=3.6
+    - make  # [unix]
     - pkg-config  # [unix]
     - swig >=3.0.7
   host:
@@ -50,6 +51,7 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - cmake >=3.6
+        - make  # [unix]
         - pkg-config  # [unix]
         - swig >=3.0.7
       host:
