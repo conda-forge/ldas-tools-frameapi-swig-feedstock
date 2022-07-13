@@ -9,7 +9,9 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ldas-tools-fram
 
 Summary: SWIG interface for the LDAS Tools frame utility library
 
-Development: https://git.ligo.org/ldastools/LDAS_Tools
+Development: https://git.ligo.org/computing/ldastools/LDAS_Tools.git
+
+Documentation: https://computing.docs.ligo.org/ldastools/LDAS_Tools/ldas-tools-frameAPI/
 
 Current build status
 ====================
