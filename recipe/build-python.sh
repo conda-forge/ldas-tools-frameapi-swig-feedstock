@@ -15,6 +15,12 @@ cmake \
 	-DENABLE_SWIG_PYTHON3:BOOL=yes \
 ;
 
+# override the PYTHON3_LIBRARIES cache variable to stop
+# attempting to link against the static libpython library
+if [[ "${target_platform}" == "linux"* ]]; then
+	cmake -DPYTHON3_LIBRARIES="" ${SRC_DIR}
+fi
+
 # build
 cmake --build python --parallel ${CPU_COUNT} --verbose
 
