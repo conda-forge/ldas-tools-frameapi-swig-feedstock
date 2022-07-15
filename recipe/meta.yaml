@@ -69,7 +69,7 @@ outputs:
         - python-ldas-tools-ldasgen >={{ ldas_tools_ldasgen_swig_version }}
     test:
       imports:
-        - LDAStools.LDASframe
+        - LDAStools._LDASframe
     about:
       home: https://wiki.ligo.org/Computing/LDASTools
       dev_url: https://git.ligo.org/computing/ldastools/LDAS_Tools.git
