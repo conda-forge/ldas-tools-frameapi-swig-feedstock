@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '13'
+- '14'
 macos_machine:
 - arm64-apple-darwin20.0.0
 pin_run_as_build:
@@ -16,9 +16,11 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - 3.10.* *_cpython
+- 3.11.* *_cpython
 - 3.8.* *_cpython
 - 3.9.* *_cpython
 python_impl:
+- cpython
 - cpython
 - cpython
 - cpython
