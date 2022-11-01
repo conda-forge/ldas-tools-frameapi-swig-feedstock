@@ -25,7 +25,7 @@ requirements:
     - cmake >=3.6
     - make  # [unix]
     - pkg-config  # [unix]
-    - swig >=3.0.7
+    - swig >=3.0.7,<4.1.0a0
   host:
     - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
     - ldas-tools-frameapi >={{ ldas_tools_frameapi_version }}
@@ -53,7 +53,7 @@ outputs:
         - cmake >=3.6
         - make  # [unix]
         - pkg-config  # [unix]
-        - swig >=3.0.7
+        - swig >=3.0.7,<4.1.0a0
       host:
         - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
         - ldas-tools-al
