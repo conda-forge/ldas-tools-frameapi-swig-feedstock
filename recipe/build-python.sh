@@ -13,6 +13,7 @@ cmake \
 	-DCMAKE_BUILD_TYPE:STRING=Release \
 	-DENABLE_SWIG_PYTHON2:BOOL=no \
 	-DENABLE_SWIG_PYTHON3:BOOL=yes \
+	-DSWIG_EXECUTABLE:FILE="${BUILD_PREFIX}/bin/swig" \
 ;
 
 # override the PYTHON3_LIBRARIES cache variable to stop
