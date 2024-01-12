@@ -7,7 +7,9 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '14'
+- '16'
+ldas_tools_framecpp:
+- '2.9'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:
@@ -17,14 +19,12 @@ pin_run_as_build:
 python:
 - 3.10.* *_cpython
 - 3.11.* *_cpython
-- 3.8.* *_73_pypy
 - 3.8.* *_cpython
 - 3.9.* *_73_pypy
 - 3.9.* *_cpython
 python_impl:
 - cpython
 - cpython
-- pypy
 - cpython
 - pypy
 - cpython

@@ -1,13 +1,30 @@
+About ldas-tools-frameapi-swig-feedstock
+========================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ldas-tools-frameapi-swig-feedstock/blob/main/LICENSE.txt)
+
+
 About ldas-tools-frameapi-swig
-==============================
+------------------------------
 
 Home: https://wiki.ligo.org/Computing/LDASTools
 
 Package license: GPL-3.0-or-later
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ldas-tools-frameapi-swig-feedstock/blob/main/LICENSE.txt)
-
 Summary: SWIG interface for the LDAS Tools frame utility library
+
+Development: https://git.ligo.org/computing/ldastools/LDAS_Tools.git
+
+Documentation: https://computing.docs.ligo.org/ldastools/LDAS_Tools/ldas-tools-frameAPI/
+
+About python-ldas-tools-frameapi
+--------------------------------
+
+Home: https://wiki.ligo.org/Computing/LDASTools
+
+Package license: GPL-3.0-or-later
+
+Summary: Python bindings for the LDAS Tools frame utility library
 
 Development: https://git.ligo.org/computing/ldastools/LDAS_Tools.git
 
@@ -147,7 +164,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
