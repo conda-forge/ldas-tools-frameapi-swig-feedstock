@@ -55,16 +55,15 @@ outputs:
         - pkg-config  # [unix]
         - swig >=3.0.7,<4.1.0a0
       host:
-        - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
         - ldas-tools-al
         - ldas-tools-al-swig
+        - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
         - {{ pin_subpackage('ldas-tools-frameapi-swig', exact=True) }}
         - python
       run:
-        - python
         - ldas-tools-al
-        - ldas-tools-frameapi >={{ ldas_tools_frameapi_version }}
-        - {{ pin_subpackage('ldas-tools-frameapi-swig', exact=True) }}
+        #- ldas-tools-frameapi >={{ ldas_tools_frameapi_version }}
+        - python
         - python-ldas-tools-framecpp >={{ ldas_tools_framecpp_swig_version }}
         - python-ldas-tools-ldasgen >={{ ldas_tools_ldasgen_swig_version }}
     test:
