@@ -16,12 +16,13 @@ source:
   sha256: 31b2253dab2dc4dbd4d464e91403fbbbd9549b4ebb28fff1a235f6f0681b5fe4
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake >=3.6
     - make  # [unix]
     - pkg-config  # [unix]
@@ -50,6 +51,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - cmake >=3.6
         - make  # [unix]
         - pkg-config  # [unix]

@@ -1,5 +1,9 @@
 BUILD:
 - aarch64-conda_cos7-linux-gnu
+c_stdlib:
+- sysroot
+c_stdlib_version:
+- '2.17'
 cdt_arch:
 - aarch64
 cdt_name:
@@ -23,10 +27,12 @@ pin_run_as_build:
 python:
 - 3.10.* *_cpython
 - 3.11.* *_cpython
+- 3.12.* *_cpython
 - 3.8.* *_cpython
 - 3.9.* *_73_pypy
 - 3.9.* *_cpython
 python_impl:
+- cpython
 - cpython
 - cpython
 - cpython
@@ -35,5 +41,7 @@ python_impl:
 target_platform:
 - linux-aarch64
 zip_keys:
+- - c_stdlib_version
+  - cdt_name
 - - python
   - python_impl
