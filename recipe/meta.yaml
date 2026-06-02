@@ -1,5 +1,5 @@
 {% set name = "ldas-tools-frameAPI-swig" %}
-{% set version = "2.6.14" %}
+{% set version = "2.6.15" %}
 
 # dependencies
 {% set ldas_tools_cmake_version = "1.2.3" %}
@@ -13,7 +13,7 @@ package:
 
 source:
   url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
-  sha256: 1ad8daedcd646016f527d33c688a00c6005bd46f693bb4e30d86190b83c3b3c5
+  sha256: 89272032defcad81f60410ffa1fd2f04fb9d3077efc335352e9ff5928b0ee420
 
 build:
   number: 0
