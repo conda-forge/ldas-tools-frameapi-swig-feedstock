@@ -56,6 +56,12 @@ outputs:
         - make  # [unix]
         - pkg-config  # [unix]
         - swig >=3.0.7,<4.1.0a0
+        # cross-compile helpers: give the build host a runnable python that
+        # reports target-platform metadata so find_package(PythonInterp)
+        # succeeds (avoids 'Cannot run the interpreter $PREFIX/bin/python').
+        # See https://git.ligo.org/computing/ldastools/igwn-cmake/-/issues/46
+        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+        - python                              # [build_platform != target_platform]
       host:
         - ldas-tools-al
         - ldas-tools-al-swig
