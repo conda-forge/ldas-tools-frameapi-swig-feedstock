@@ -4,11 +4,12 @@ context:
   name: ldas-tools-frameAPI-swig
   version: 2.6.16
   # dependencies
-  ldas_tools_cmake_version: 1.2.3
-  ldas_tools_al_version: 2.7.0
-  ldas_tools_frameapi_version: 2.6.6
-  ldas_tools_framecpp_swig_version: 2.6.14
-  ldas_tools_ldasgen_swig_version: 2.6.10
+  ldas_tools_cmake_version: 1.5.0
+  ldas_tools_al_version: 2.10.0
+  ldas_tools_al_swig_version: 2.6.14
+  ldas_tools_frameapi_version: 3.0.8
+  ldas_tools_framecpp_swig_version: 3.1.2
+  ldas_tools_ldasgen_swig_version: 2.6.14
 
 recipe:
   name: ${{ name|lower }}
@@ -31,10 +32,10 @@ outputs:
       build:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
-        - cmake >=3.6
+        - cmake >=3.12,<4.0.0a0
         - make
         - pkg-config
-        - swig >=3.0.7,<4.1.0a0
+        - swig >=3.0.7
       host:
         - ldas-tools-cmake >=${{ ldas_tools_cmake_version }}
         - ldas-tools-frameapi ${{ ldas_tools_frameapi_version }}.*
@@ -58,25 +59,30 @@ outputs:
       build:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
-        - cmake >=3.6
+        - cmake >=3.12,<4.0.0a0
         - make
         - pkg-config
-        - swig >=3.0.7,<4.1.0a0
+        - swig >=3.0.7
         # Extras for cross-compilation
         - if: build_platform != target_platform
           then:
             - cross-python_${{ target_platform }}
             - python
       host:
-        - ldas-tools-al ${{ ldas_tools_al_version }}.*
-        - ldas-tools-al-swig
-        - ldas-tools-cmake >=${{ ldas_tools_cmake_version }}
         - ${{ pin_subpackage('ldas-tools-frameapi-swig', exact=True) }}
+        - ldas-tools-al ${{ ldas_tools_al_version }}.*
+        - ldas-tools-al-swig ${{ ldas_tools_al_swig_version }}.*
+        - ldas-tools-cmake >=${{ ldas_tools_cmake_version }}
+        - ldas-tools-frameapi ${{ ldas_tools_frameapi_version }}.*
+        - ldas-tools-framecpp-swig ${{ ldas_tools_framecpp_swig_version }}.*
         - python
       run:
         - python
         - python-ldas-tools-framecpp >=${{ ldas_tools_framecpp_swig_version }}
         - python-ldas-tools-ldasgen >=${{ ldas_tools_ldasgen_swig_version }}
+      ignore_run_exports:
+        by_name:
+          - ldas-tools-frameapi
     tests:
       - python:
           imports:
