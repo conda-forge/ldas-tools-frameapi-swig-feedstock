@@ -7,14 +7,11 @@ pushd _build
 
 # configure
 cmake \
-	${SRC_DIR} \
-	${CMAKE_ARGS} \
-	-DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo \
-	-DCMAKE_OSX_ARCHITECTURES:STRING="${OSX_ARCH}" \
-	-DCMAKE_POLICY_VERSION_MINIMUM:STRING=3.5 \
-	-DENABLE_SWIG_PYTHON2:BOOL=no \
-	-DENABLE_SWIG_PYTHON3:BOOL=no \
-	-DSWIG_EXECUTABLE:FILE="${BUILD_PREFIX}/bin/swig" \
+  ${CMAKE_ARGS} \
+  -DCMAKE_OSX_ARCHITECTURES:STRING="${OSX_ARCH}" \
+  -DENABLE_SWIG_PYTHON3:BOOL=no \
+  -DSWIG_EXECUTABLE:FILE="${BUILD_PREFIX}/bin/swig" \
+  ${SRC_DIR} \
 ;
 
 # build
@@ -22,7 +19,7 @@ cmake --build . --parallel ${CPU_COUNT} --verbose
 
 # check
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
-	ctest --parallel ${CPU_COUNT} --verbose
+  ctest --parallel ${CPU_COUNT} --verbose
 fi
 
 # install
