@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: ldas-tools-frameAPI-swig
-  version: 2.6.16
+  version: "2.6.17"
   # dependencies
   ldas_tools_cmake_version: 1.5.0
   ldas_tools_al_version: 2.10.0
@@ -17,10 +17,10 @@ recipe:
 
 source:
   url: https://software.igwn.org/sources/source/${{ name }}-${{ version }}.tar.gz
-  sha256: 43d1f61ff827781bc351149e1377cfcd86b64eb4b2f2c95cafd62fb0136c5651
+  sha256: 1d7abc80f000ea8dd9ed8f1e1d66c74d5e140b77ebc45362dd1e4fef49920fe6
 
 build:
-  number: 1
+  number: 0
   skip: win
 
 outputs:
