@@ -4,12 +4,12 @@ context:
   name: ldas-tools-frameAPI-swig
   version: "2.6.17"
   # dependencies
-  ldas_tools_cmake_version: 1.5.0
-  ldas_tools_al_version: 2.10.0
-  ldas_tools_al_swig_version: 2.6.14
-  ldas_tools_frameapi_version: 3.0.8
+  ldas_tools_cmake_version: 1.5.1
+  ldas_tools_al_version: 2.10.1
+  ldas_tools_al_swig_version: 2.6.15
+  ldas_tools_frameapi_version: 3.0.9
   ldas_tools_framecpp_swig_version: 3.1.2
-  ldas_tools_ldasgen_swig_version: 2.6.14
+  ldas_tools_ldasgen_swig_version: 2.6.15
 
 recipe:
   name: ${{ name|lower }}
