@@ -20,7 +20,7 @@ source:
   sha256: 1d7abc80f000ea8dd9ed8f1e1d66c74d5e140b77ebc45362dd1e4fef49920fe6
 
 build:
-  number: 0
+  number: 1
   skip: win
 
 outputs:
@@ -75,6 +75,7 @@ outputs:
         - ldas-tools-cmake >=${{ ldas_tools_cmake_version }}
         - ldas-tools-frameapi ${{ ldas_tools_frameapi_version }}.*
         - ldas-tools-framecpp-swig ${{ ldas_tools_framecpp_swig_version }}.*
+        - libpython
         - python
       run:
         - python
@@ -83,6 +84,7 @@ outputs:
       ignore_run_exports:
         by_name:
           - ldas-tools-frameapi
+          - libpython
     tests:
       - python:
           imports:
